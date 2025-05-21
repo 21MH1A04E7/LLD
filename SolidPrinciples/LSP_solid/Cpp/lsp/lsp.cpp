@@ -5,12 +5,13 @@
 
 using namespace std;
 
-
+// 1. DepositOnlyAccount interface: only allows deposits
 class DepositOnlyAccount {
 public:
     virtual void deposit(double amount) = 0;
 };
 
+// 2. WithdrawableAccount interface: allows deposits and withdrawals
 class WithdrawableAccount : public DepositOnlyAccount {
 public:
     virtual void withdraw(double amount) = 0;
