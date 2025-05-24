@@ -73,6 +73,7 @@ public:
     {
         documentsElements.push_back(element);
     }
+    // Renders the document by concatenating the render output of all elements.
     string render()
     {
         string result;
@@ -84,12 +85,14 @@ public:
     }
 };
 
+// Persistence abstraction
 class Persistence
 {
 public:
     virtual void save(string data) = 0;
 };
 
+// FileStorage implementation of Persistence
 class FileStorage : public Persistence
 {
 public:
@@ -134,9 +137,11 @@ public:
     void addImage(string imagePath){
         document->addElement(new ImageElement(imagePath));
     }
+    // Adds a new line to the document.
     void addNewLine(){
         document->addElement(new NewLineElement());
     }
+    // Adds a tab space to the document.
     void addTapSpace(){
         document->addElement(new TapSpaceElement());
     }
@@ -151,8 +156,7 @@ public:
     }
 };
 
-
-
+// Client usage example
 int main()
 {
     Document* document=new Document();
@@ -168,7 +172,8 @@ int main()
     editor->addText("Indented text after a tab space");
     editor->addNewLine();
     editor->addImage("picture2.png");
+    // Render and display the final document.
     cout<<editor->renderDocument()<<endl;
     editor->save();
-
+    
 }
