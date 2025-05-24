@@ -1,0 +1,3 @@
+Hello, world
+[Image: picture.jpg]	Indented text after a tab space
+[Image: picture2.png]
